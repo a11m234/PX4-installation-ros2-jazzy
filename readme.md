@@ -95,10 +95,14 @@ Now, we'll install ROS 2 Jazzy, the recommended ROS 2 version for Ubuntu 24.04.
 
 1.  **Set Locale:** Ensure your system supports UTF-8.
     ```bash
-    sudo apt update && sudo apt install locales -y
-    sudo locale-gen en_US en_US.UTF-8
-    sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
-    export LANG=en_US.UTF-8
+      locale  # check for UTF-8
+      
+      sudo apt update && sudo apt install locales
+      sudo locale-gen en_US en_US.UTF-8
+      sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+      export LANG=en_US.UTF-8
+      
+      locale  # verify settings
     ```
     * *You can check your locale settings with `locale`.*
 2.  **Enable Ubuntu Universe Repository:**
@@ -109,21 +113,21 @@ Now, we'll install ROS 2 Jazzy, the recommended ROS 2 version for Ubuntu 24.04.
     ```
 3.  **Add the ROS 2 Apt Repository:**
     ```bash
-    sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
-    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | 
-    sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+      export ROS_APT_SOURCE_VERSION=$(curl -s https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | grep -F "tag_name" | awk -F\" '{print $4}')
+      curl -L -o /tmp/ros2-apt-source.deb "https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-apt-source_${ROS_APT_SOURCE_VERSION}.$(. /etc/os-release && echo ${UBUNTU_CODENAME:-${VERSION_CODENAME}})_all.deb"
+      sudo dpkg -i /tmp/ros2-apt-source.deb
     ```
 4.  **Update Apt Repositories Again:**
     ```bash
-    sudo apt update
+    sudo apt update 
     ```
 5.  **Upgrade System Packages (Optional but Recommended):** Ensure there are no conflicts.
     ```bash
-    sudo apt upgrade -y
+     sudo apt upgrade -y 
     ```
 6.  **Install ROS 2 Desktop:** This includes ROS, RViz, demos, tutorials, and more.
     ```bash
-    sudo apt install ros-humble-desktop -y
+    sudo apt install ros-jazzy-desktop -y
     ```
 7.  **Install Development Tools:** Useful for building ROS 2 packages.
     ```bash
@@ -131,8 +135,8 @@ Now, we'll install ROS 2 Jazzy, the recommended ROS 2 version for Ubuntu 24.04.
     ```
 8.  **Source the Setup Script:** Make ROS 2 commands available in your current terminal and add it to your `.bashrc` to automatically source it in new terminals.
     ```bash
-    source /opt/ros/humble/setup.bash
-    echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
+    source /opt/ros/jazzy/setup.bash
+    echo "source /opt/ros/jazzy/setup.bash" >> ~/.bashrc
     ```
     * *Close and reopen your terminal or run `source ~/.bashrc` for the change to take effect in the current terminal.*
 9.  **Install Essential Python Packages:** Required for ROS 2 tools and message generation.
