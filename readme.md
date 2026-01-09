@@ -89,9 +89,9 @@ Let's verify the PX4 installation by building and running a basic Software-In-Th
     ./QGroundControl.AppImage   # (or double click)
     ```
 
-## Step 4: Install ROS 2 Humble Hawksbill
+## Step 4: Install ROS 2 Jazzy
 
-Now, we'll install ROS 2 Humble, the recommended ROS 2 version for Ubuntu 22.04.
+Now, we'll install ROS 2 Jazzy, the recommended ROS 2 version for Ubuntu 24.04.
 
 1.  **Set Locale:** Ensure your system supports UTF-8.
     ```bash
