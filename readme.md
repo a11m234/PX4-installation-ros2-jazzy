@@ -150,9 +150,9 @@ Now, we'll install ROS 2 Jazzy, the recommended ROS 2 version for Ubuntu 24.04.
     ```bash
     echo $ROS_DISTRO
     ```
-    * *This command should output: `humble`*
+    * *This command should output: `Jazzy`*
 11. **Install ROS bridge:**
-     * *To install the bridge for use with ROS 2 "Humble" and Gazebo Harmonic (on Ubuntu 22.04):
+     * *To install the bridge for use with ROS 2 "Jazzy" and Gazebo Jetty (on Ubuntu 24.04):
      ```bash
     sudo apt install ros-humble-ros-gzharmonic
      ```
