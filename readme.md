@@ -239,9 +239,9 @@ Now, let's set up a ROS 2 workspace to use the `px4_ros_com` package, which prov
         ```bash
         cd ..
         ```
-    * Source your ROS 2 Humble installation. This makes ROS 2 build tools available.
+    * Source your ROS 2 Jazzy installation. This makes ROS 2 build tools available.
         ```bash
-        source /opt/ros/humble/setup.bash
+         source /opt/ros/jazzy/setup.bash
         ```
     * Build the workspace using `colcon`. Colcon is the standard build tool for ROS 2 packages.
         ```bash
@@ -262,7 +262,7 @@ Now, let's set up a ROS 2 workspace to use the `px4_ros_com` package, which prov
         ```
     * **Source ROS 2 Environment:**
         ```bash
-        source /opt/ros/humble/setup.bash
+        source /opt/ros/jazzy/setup.bash
         ```
     * **Source Local Workspace Setup:** This makes the packages you just built in *this specific workspace* available to ROS 2 commands.
         ```bash
