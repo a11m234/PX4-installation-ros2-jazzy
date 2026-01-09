@@ -154,7 +154,8 @@ Now, we'll install ROS 2 Jazzy, the recommended ROS 2 version for Ubuntu 24.04.
 11. **Install ROS bridge:**
      * *To install the bridge for use with ROS 2 "Jazzy" and Gazebo Jetty (on Ubuntu 24.04):
      ```bash
-    sudo apt install ros-humble-ros-gzharmonic
+     sudo apt install ros-jazzy-ros-gz-bridge ros-jazzy-ros-gz-image -y
+
      ```
 12. **Running ROS bridge Camera:**
     
